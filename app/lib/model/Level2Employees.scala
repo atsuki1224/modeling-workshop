@@ -8,6 +8,7 @@ import java.time.LocalDateTime
 import Employee._
 case class Employee(
   id:        Option[Employee.Id],
+  name:      String,
   state:     Status,
   email:     String,
   teamId:    Option[Team.Id],
@@ -28,10 +29,11 @@ object Employee {
     case object IS_INACTIVE extends Status(code = 1, name = "休憩中")
   }
  
-  def apply(state: Status, email: String, teamId: Option[Team.Id]): WithNoId = {
+  def apply(name: String, state: Status, email: String, teamId: Option[Team.Id]): WithNoId = {
     new Entity.WithNoId(
       new Employee(
         id     = None,
+        name   = name,
         state  = state,
         email  = email,
         teamId = teamId

@@ -5,9 +5,9 @@ import ixias.util.EnumStatus
 
 import java.time.LocalDateTime
 
-import Employees._
-case class Employees(
-  id:        Option[Employees.Id],
+import Employee._
+case class Employee(
+  id:        Option[Employee.Id],
   state:     Status,
   email:     String,
   teamId:    Option[Team.Id],
@@ -15,12 +15,12 @@ case class Employees(
   createdAt: LocalDateTime         = NOW
 ) extends EntityModel[Id]
 
-object Employees {
+object Employee {
 
   val  Id         = the[Identity[Id]]
-  type Id         = Long @@ Employees
-  type WithNoId   = Entity.WithNoId [Id, Employees]
-  type EmbeddedId = Entity.EmbeddedId[Id, Employees]
+  type Id         = Long @@ Employee
+  type WithNoId   = Entity.WithNoId [Id, Employee]
+  type EmbeddedId = Entity.EmbeddedId[Id, Employee]
 
   sealed abstract class Status(val code: Short, val name: String) extends EnumStatus
   object Status extends EnumStatus.Of[Status] {
@@ -30,7 +30,7 @@ object Employees {
  
   def apply(state: Status, email: String, teamId: Option[Team.Id]): WithNoId = {
     new Entity.WithNoId(
-      new Employees(
+      new Employee(
         id     = None,
         state  = state,
         email  = email,

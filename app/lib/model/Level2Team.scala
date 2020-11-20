@@ -23,8 +23,8 @@ object Team {
   def apply(name: String, introduction: String): WithNoId = {
     new Entity.WithNoId(
       new Team(
-        id   = None,
-        name = name,
+        id           = None,
+        name         = name,
         introduction = introduction
       )
     )

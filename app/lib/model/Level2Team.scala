@@ -9,8 +9,8 @@ case class Team(
   id:           Option[Team.Id],
   name:         String,
   introduction: String,
-  updatedAt:    LocalDateTime = NOW,
-  createdAt:    LocalDateTime = NOW
+  updatedAt:    LocalDateTime    = NOW,
+  createdAt:    LocalDateTime    = NOW
 ) extends EntityModel[Id]
 
 object Team {

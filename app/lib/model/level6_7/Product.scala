@@ -1,4 +1,4 @@
-package lib.model.level6
+package lib.model.level6_7
 
 import ixias.model._
 import java.time.LocalDateTime
@@ -7,8 +7,8 @@ import Product._
 case class Product(
   id:        Option[Product.Id],
   name:      String,
-  updatedAt: LocalDateTime    = NOW,
-  createdAt: LocalDateTime    = NOW
+  updatedAt: LocalDateTime = NOW,
+  createdAt: LocalDateTime = NOW
 ) extends EntityModel[Id]
 
 object Product {

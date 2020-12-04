@@ -1,4 +1,4 @@
-package lib.model.level6
+package lib.model.level6_7
 
 import ixias.model._
 import java.time.LocalDateTime

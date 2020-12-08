@@ -1,13 +1,13 @@
 package lib.model.level6
 
 import ixias.model._
-import java.time.LocalDateTime
+import java.time.{ LocalDate, LocalDateTime }
 
 import Purchasing._
 case class Purchasing(
   id:             Option[Purchasing.Id],
   totalAmount:    Int,
-  purchasingDate: LocalDateTime = NOW,
+  purchasingDate: LocalDate,
   updatedAt:      LocalDateTime = NOW,
   createdAt:      LocalDateTime = NOW
 ) extends EntityModel[Id]
@@ -20,12 +20,14 @@ object Purchasing {
   type EmbeddedId = Entity.EmbeddedId[Id, Purchasing]
 
   def apply(
-    totalAmount:    Int
+    totalAmount:    Int,
+    purchasingDate: LocalDate
   ): WithNoId = {
     new Entity.WithNoId(
       new Purchasing(
-        id          = None,
-        totalAmount = totalAmount
+        id             = None,
+        purchasingDate = purchasingDate,
+        totalAmount    = totalAmount
       )
     )
   }

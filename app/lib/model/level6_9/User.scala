@@ -1,28 +1,28 @@
-package lib.model.level6_7
+package lib.model.level6_9
 
 import ixias.model._
 import java.time.LocalDateTime
 
-import Product._
-case class Product(
-  id:        Option[Product.Id],
+import User._
+case class User(
+  id:        Option[User.Id],
   name:      String,
   updatedAt: LocalDateTime = NOW,
   createdAt: LocalDateTime = NOW
 ) extends EntityModel[Id]
 
-object Product {
+object User {
 
   val  Id         = the[Identity[Id]]
-  type Id         = Long @@ Product
-  type WithNoId   = Entity.WithNoId[Id, Product]
-  type EmbeddedId = Entity.EmbeddedId[Id, Product]
+  type Id         = Long @@ User
+  type WithNoId   = Entity.WithNoId[Id, User]
+  type EmbeddedId = Entity.EmbeddedId[Id, User]
 
   def apply(
     name: String
   ): WithNoId = {
     new Entity.WithNoId(
-      new Product(
+      new User(
         id   = None,
         name = name
       )

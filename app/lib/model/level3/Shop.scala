@@ -9,6 +9,7 @@ case class Shop(
   venuId:       Venu.Id,
   name:         String,
   phone:        String,
+  place:        String,
   menu:         Seq[String],
   imageUrl:     String,
   introduction: String,
@@ -27,6 +28,7 @@ object Shop {
     name:         String,
     venuId:       Venu.Id,
     phone:        String,
+    place:        String,
     menu:         Seq[String],
     imageUrl:     String,
     introduction: String
@@ -37,6 +39,7 @@ object Shop {
         venuId       = venuId,
         name         = name,
         phone        = phone,
+        place        = place,
         menu         = menu,
         imageUrl     = imageUrl,
         introduction = introduction

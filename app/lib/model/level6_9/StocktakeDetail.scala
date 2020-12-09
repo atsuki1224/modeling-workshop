@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 import StocktakeDetail._
 case class StocktakeDetail(
   id:                Option[StocktakeDetail.Id],
-  purchasingId:      Purchasing.Id,
+  stocktakeId:       Stacktake.Id,
   productId:         Product.Id,
   price:             Int,
   stock:             Int,
@@ -24,6 +24,7 @@ object StocktakeDetail {
 
   def apply(
     purchasingId:      Purchasing.Id,
+    stocktakeId:       Stacktake.Id,
     productId:         Product.Id,
     price:             Int,
     stock:             Int,
@@ -32,7 +33,7 @@ object StocktakeDetail {
     new Entity.WithNoId(
       new StocktakeDetail(
         id   = None,
-        purchasingId      = purchasingId,
+        stocktakeId       = stocktakeId,
         productId         = productId,
         price             = price,
         stock             = stock,
